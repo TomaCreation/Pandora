@@ -2,6 +2,7 @@ package framework.tests;
 
 import framework.pages.TrainingPage;
 import org.apache.commons.io.FileUtils;
+import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.*;
 
@@ -18,12 +19,18 @@ public class TestYoutube extends BaseTest{
     driver.navigate().to("https://www.aliexpress.com/");
     palauktiElemento(trainingPuslapis.paieska);
 
+    try {
+        Assert.assertNotEquals("Aliexpress", driver.getTitle());
+        String Aliexpress1 = driver.getTitle();
+        System.out.println("Page title is " + Aliexpress1);
+    }
+    catch (Exception e){System.out.println("Page title is Aliexpress");}
+
     trainingPuslapis.paieska.sendKeys("Looking for a job because I wanna buy a");
     Thread.sleep(1000);
 
     try {trainingPuslapis.xbutton.click();}
-    catch (Exception e){Thread.sleep(500);
-    }
+    catch (Exception e){}
 
     trainingPuslapis.paieska.sendKeys((Keys.chord(Keys.CONTROL, "a")));
     trainingPuslapis.paieska.sendKeys("sports car");
@@ -32,16 +39,18 @@ public class TestYoutube extends BaseTest{
 
     Thread.sleep(1000);
     try {trainingPuslapis.xbutton.click();}
-    catch (Exception e){Thread.sleep(500);
-    }
+    catch (Exception e){}
+
+    palauktiElemento(trainingPuslapis.minimalus);
     trainingPuslapis.minimalus.sendKeys("100000");
     trainingPuslapis.maksimalus.sendKeys("20000");
     trainingPuslapis.maksimalus.sendKeys(Keys.ENTER);
+    palauktiElemento(trainingPuslapis.minimalus);
 
     try {trainingPuslapis.xbutton.click();}
-    catch (Exception e){Thread.sleep(500);}
+    catch (Exception e){}
 
-    Thread.sleep(2000);
+    Thread.sleep(1000);
     JavascriptExecutor jse = (JavascriptExecutor) driver;
     jse.executeScript("scroll(0, 2000);");
     Thread.sleep(2000);
@@ -49,13 +58,15 @@ public class TestYoutube extends BaseTest{
     try {
         String pageUrl = "https://www.google.com";
         this.driver.get(pageUrl);
+        String Google1 = driver.getTitle();
+        System.out.println("Page title is " + Google1);
 
         JavascriptExecutor jsExecutor = (JavascriptExecutor)this.driver;
         String jsOpenNewWindow = "window.open('"+pageUrl+"');";
         for(int i=0;i<6;i++)
         {
             jsExecutor.executeScript(jsOpenNewWindow);
-            Thread.sleep(1000);
+            Thread.sleep(500);
             System.out.println((i+1)+" opened.");
         }
         Set<String> windowHandleSet = this.driver.getWindowHandles();
@@ -72,7 +83,7 @@ public class TestYoutube extends BaseTest{
                 {
                     this.driver.switchTo().window(windowHandleStr);
                     this.driver.get("http://www.ebay.co.uk");
-                    System.out.println("Switch Window " + windowHandleStr + " to http://www.google.com");
+                    System.out.println("Switch Window " + windowHandleStr + " to http://www.ebay.co.uk");
                     trainingPuslapis.ebaysearch.sendKeys("lotus car");
                     trainingPuslapis.ebaysearch.sendKeys(Keys.ENTER);
                     palauktiElemento(trainingPuslapis.ebay2019);
@@ -100,7 +111,7 @@ public class TestYoutube extends BaseTest{
     catch (Exception e){};
 
     driver.get("C:\\Selenium\\Mywish.jpeg");
-    Thread.sleep(5000);
+    Thread.sleep(2000);
 
     driver.manage().window().setSize(new Dimension(1920,1080));
     Thread.sleep(300);
@@ -118,12 +129,18 @@ public class TestYoutube extends BaseTest{
     driver.manage().window().maximize();
 
     driver.get("https://youtu.be/nwTTRy4O-iU?t=11");
-    Thread.sleep(6000);
+    try {
+        Assert.assertNotEquals("Youtube", driver.getTitle());
+        String YoutubeTitle1 = driver.getTitle();
+        System.out.println("Page title is " + YoutubeTitle1);
+        }
+    catch (Exception e){System.out.println("Page title is Youtube");}
 
-    try {trainingPuslapis.skip.click();
-        Thread.sleep(11500);}
+    try {palauktiElemento(trainingPuslapis.skip);
+        trainingPuslapis.skip.click();
+        Thread.sleep(10900);}
     catch (Exception e){
-        Thread.sleep(4500);
+        Thread.sleep(3000);
     }
     trainingPuslapis.searchLaukas.sendKeys("I will tell you how I feel");
     trainingPuslapis.searchLaukas.sendKeys(Keys.ESCAPE);
@@ -132,18 +149,16 @@ public class TestYoutube extends BaseTest{
     driver.get("https://youtu.be/DGIgXP9SvB8?t=86");
     trainingPuslapis.searchLaukas.sendKeys("Who cares what the haters say");
     trainingPuslapis.searchLaukas.sendKeys(Keys.ESCAPE);
-    Thread.sleep(6000);
-    try {
+
+    try {palauktiElemento(trainingPuslapis.skip);
         trainingPuslapis.skip.click();
-        Thread.sleep(8000);}
-    catch (Exception e){
-        Thread.sleep(1000);
-    }
+        Thread.sleep(7000);}
+    catch (Exception e){}
     Thread.sleep(11000);
 
     driver.get("https://youtu.be/DGIgXP9SvB8?t=150");
-    Thread.sleep(6000);
-    try {
+
+    try {palauktiElemento(trainingPuslapis.skip);
         trainingPuslapis.skip.click();
         Thread.sleep(20000);}
     catch (Exception e){
@@ -155,13 +170,11 @@ public class TestYoutube extends BaseTest{
     driver.get("https://youtu.be/ASO_zypdnsQ?t=46");
     trainingPuslapis.searchLaukas.sendKeys("How do I test?");
     trainingPuslapis.searchLaukas.sendKeys(Keys.ESCAPE);
-    Thread.sleep(6000);
-    try {trainingPuslapis.skip.isDisplayed();
+
+    try {palauktiElemento(trainingPuslapis.skip);
         trainingPuslapis.skip.click();
-        Thread.sleep(7010);}
-    catch (Exception e){
-        Thread.sleep(10);
-    }
+        Thread.sleep(7000);}
+    catch (Exception e){}
     trainingPuslapis.searchLaukas.sendKeys((Keys.chord(Keys.CONTROL, "a")));
     trainingPuslapis.searchLaukas.sendKeys("Like a gentleman");
     trainingPuslapis.searchLaukas.sendKeys(Keys.ESCAPE);
@@ -169,24 +182,23 @@ public class TestYoutube extends BaseTest{
 
     driver.get("https://youtu.be/ftgmdRlDkko?t=117");
     trainingPuslapis.searchLaukas.sendKeys("How I see DEVs and the system");
-    Thread.sleep(6000);
-    try {trainingPuslapis.skip.isDisplayed();
+
+    try {palauktiElemento(trainingPuslapis.skip);
         trainingPuslapis.skip.click();
-        Thread.sleep(7010);}
-    catch (Exception e){
-        Thread.sleep(10);}
-    Thread.sleep(160000);
+        Thread.sleep(7000);}
+    catch (Exception e){}
+    Thread.sleep(136000);
 
     driver.get("https://youtu.be/YBHQbu5rbdQ?t=67");
     trainingPuslapis.searchLaukas.sendKeys("And about the job in your company");
     trainingPuslapis.searchLaukas.sendKeys(Keys.ESCAPE);
-    Thread.sleep(6000);
-    try {trainingPuslapis.skip.isDisplayed();
+
+    try {palauktiElemento(trainingPuslapis.skip);
         trainingPuslapis.skip.click();
-        Thread.sleep(7010);}
-    catch (Exception e){
-        Thread.sleep(10);}
+        Thread.sleep(7000);}
+    catch (Exception e){}
     trainingPuslapis.like.click();
     Thread.sleep(26500);
+  
 
 }}

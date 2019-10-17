@@ -32,14 +32,15 @@ public class BaseTest {
         {
             System.setProperty("webdriver.gecko.driver", "C:\\geckodriver\\geckodriver.exe");
             driver = new FirefoxDriver();
-            driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+
+
             driver.manage().window().maximize();
         }
     }
 
     protected void palauktiElemento(WebElement by)
     {
-        WebDriverWait wait = new WebDriverWait(driver, 45);
+        WebDriverWait wait = new WebDriverWait(driver, 6);
         wait.until(ExpectedConditions.visibilityOf(by));
     }
 
