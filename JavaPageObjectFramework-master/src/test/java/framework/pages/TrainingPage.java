@@ -29,6 +29,9 @@ public class TrainingPage {
     @FindBy(how = How.CSS, using = "button[aria-label*='like this']")
     public WebElement like;
 
+    @FindBy(how = How.ID, using = "toggle")
+    public WebElement autoplay;
+
     @FindBy(how = How.CLASS_NAME, using = "close-layer")
     public WebElement xbutton;
 
