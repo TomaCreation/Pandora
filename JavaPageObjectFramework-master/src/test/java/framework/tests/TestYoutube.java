@@ -15,7 +15,6 @@ public class TestYoutube extends BaseTest{
 @Test public void TestForFun() throws InterruptedException
 {
     TrainingPage trainingPuslapis = new TrainingPage(driver);
-
     driver.navigate().to("https://www.aliexpress.com/");
     palauktiElemento(trainingPuslapis.paieska);
 
@@ -107,8 +106,7 @@ public class TestYoutube extends BaseTest{
             }
         }
     }
-
-    catch (Exception e){};
+    catch (Exception e){}
 
     driver.get("C:\\Selenium\\Mywish.jpeg");
     Thread.sleep(2000);
@@ -129,35 +127,45 @@ public class TestYoutube extends BaseTest{
     driver.manage().window().maximize();
 
     driver.get("https://youtu.be/nwTTRy4O-iU?t=11");
-    try {
-        Assert.assertNotEquals("Youtube", driver.getTitle());
-        String YoutubeTitle1 = driver.getTitle();
-        System.out.println("Page title is " + YoutubeTitle1);
-        }
-    catch (Exception e){System.out.println("Page title is Youtube");}
-
     try {palauktiElemento(trainingPuslapis.skip);
         trainingPuslapis.skip.click();
-        Thread.sleep(10900);}
+        Thread.sleep(12000);}
     catch (Exception e){
-        Thread.sleep(3000);
-    }
+        Thread.sleep(5000);}
     trainingPuslapis.searchLaukas.sendKeys("I will tell you how I feel");
     trainingPuslapis.searchLaukas.sendKeys(Keys.ESCAPE);
     Thread.sleep(3000);
+    try {Assert.assertNotEquals("Youtube", driver.getTitle());
+        String YoutubeTitle1 = driver.getTitle();
+        System.out.println("Page title is " + YoutubeTitle1);}
+    catch (Exception e){System.out.println("Page title is Youtube");}
 
     driver.get("https://youtu.be/DGIgXP9SvB8?t=86");
     trainingPuslapis.searchLaukas.sendKeys("Who cares what the haters say");
     trainingPuslapis.searchLaukas.sendKeys(Keys.ESCAPE);
-
     try {palauktiElemento(trainingPuslapis.skip);
         trainingPuslapis.skip.click();
-        Thread.sleep(7000);}
+        Thread.sleep(14000);}
+    catch (Exception e){ Thread.sleep(7000);}
+    try {
+        Assert.assertNotEquals("Youtube", driver.getTitle());
+        String YoutubeTitle1 = driver.getTitle();
+        System.out.println("Page title is " + YoutubeTitle1); }
+    catch (Exception e){System.out.println("Page title is Youtube");}
+
+    driver.get("https://youtu.be/01Qu1cCF4fg?t=3");
+    trainingPuslapis.searchLaukas.sendKeys("I am a very curious person");
+    trainingPuslapis.searchLaukas.sendKeys(Keys.ESCAPE);
+    try {palauktiElemento(trainingPuslapis.skip);
+        trainingPuslapis.skip.click();
+        Thread.sleep(6000);}
     catch (Exception e){}
-    Thread.sleep(11000);
+    try {Assert.assertNotEquals("Youtube", driver.getTitle());
+        String YoutubeTitle1 = driver.getTitle();
+        System.out.println("Page title is " + YoutubeTitle1);}
+    catch (Exception e){System.out.println("Page title is Youtube");}
 
     driver.get("https://youtu.be/DGIgXP9SvB8?t=150");
-
     try {palauktiElemento(trainingPuslapis.skip);
         trainingPuslapis.skip.click();
         Thread.sleep(20000);}
@@ -166,11 +174,14 @@ public class TestYoutube extends BaseTest{
     trainingPuslapis.searchLaukas.sendKeys("I'll be that number one");
     trainingPuslapis.searchLaukas.sendKeys(Keys.ESCAPE);
     Thread.sleep(61000);
+    try {Assert.assertNotEquals("Youtube", driver.getTitle());
+        String YoutubeTitle1 = driver.getTitle();
+        System.out.println("Page title is " + YoutubeTitle1);}
+    catch (Exception e){System.out.println("Page title is Youtube");}
 
     driver.get("https://youtu.be/ASO_zypdnsQ?t=46");
     trainingPuslapis.searchLaukas.sendKeys("How do I test?");
     trainingPuslapis.searchLaukas.sendKeys(Keys.ESCAPE);
-
     try {palauktiElemento(trainingPuslapis.skip);
         trainingPuslapis.skip.click();
         Thread.sleep(7000);}
@@ -179,26 +190,35 @@ public class TestYoutube extends BaseTest{
     trainingPuslapis.searchLaukas.sendKeys("Like a gentleman");
     trainingPuslapis.searchLaukas.sendKeys(Keys.ESCAPE);
     Thread.sleep(3500);
+    try {Assert.assertNotEquals("Youtube", driver.getTitle());
+        String YoutubeTitle1 = driver.getTitle();
+        System.out.println("Page title is " + YoutubeTitle1);}
+    catch (Exception e){System.out.println("Page title is Youtube");}
 
     driver.get("https://youtu.be/ftgmdRlDkko?t=117");
     trainingPuslapis.searchLaukas.sendKeys("How I see DEVs and the system");
-
     try {palauktiElemento(trainingPuslapis.skip);
         trainingPuslapis.skip.click();
         Thread.sleep(7000);}
     catch (Exception e){}
-    Thread.sleep(136000);
+    Thread.sleep(137000);
+    try {Assert.assertNotEquals("Youtube", driver.getTitle());
+        String YoutubeTitle1 = driver.getTitle();
+        System.out.println("Page title is " + YoutubeTitle1);}
+    catch (Exception e){System.out.println("Page title is Youtube");}
 
     driver.get("https://youtu.be/YBHQbu5rbdQ?t=67");
     trainingPuslapis.searchLaukas.sendKeys("And about the job in your company");
     trainingPuslapis.searchLaukas.sendKeys(Keys.ESCAPE);
-
     try {palauktiElemento(trainingPuslapis.skip);
         trainingPuslapis.skip.click();
         Thread.sleep(7000);}
     catch (Exception e){}
     trainingPuslapis.like.click();
     Thread.sleep(26500);
-  
+    try {Assert.assertNotEquals("Youtube", driver.getTitle());
+        String YoutubeTitle1 = driver.getTitle();
+        System.out.println("Page title is " + YoutubeTitle1);}
+    catch (Exception e){System.out.println("Page title is Youtube");}
 
 }}
